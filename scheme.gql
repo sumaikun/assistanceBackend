@@ -1,0 +1,285 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CitiesInput {
+  name: String!
+}
+
+type CityType {
+  id: ID!
+  name: String!
+}
+
+input DeliversInput {
+  description: String!
+  need: String!
+  donation: String!
+  donationPlace: String!
+  pictures: [String!]!
+}
+
+type DeliverType {
+  id: ID!
+  donation: DonationType!
+  need: NeedType!
+  donationPlace: DonationPlaceType!
+  description: String!
+  pictures: [String!]!
+}
+
+input DonationPlacesInput {
+  name: String!
+  address: String!
+  city: String!
+  picture: String!
+  contact: String!
+  phone: String!
+}
+
+type DonationPlaceType {
+  id: ID!
+  name: String!
+  address: String!
+  city: String!
+  picture: String!
+  contact: String!
+  phone: String!
+}
+
+input DonationsInput {
+  name: String!
+  address: String!
+  city: String!
+  phone: String!
+  description: String!
+  donationPlace: String!
+  need: String!
+}
+
+type DonationType {
+  id: ID!
+  name: String!
+  address: String!
+  city: String!
+  phone: String!
+  description: String!
+  donationPlace: DonationPlaceType!
+  need: NeedType
+  state: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginType {
+  access_token: String!
+  role: String!
+}
+
+type Mutation {
+  createUser(input: UsersInput!): UserType!
+  updateUser(input: UpdateUsersInput!): String!
+  deleteUserByID(input: String!): String!
+  login(input: LoginInput!): LoginType!
+  createCity(input: CitiesInput!): CityType!
+  updateCity(input: UpdateCitiesInput!): String!
+  deleteCityByID(input: String!): CityType!
+  createDonationPlace(input: DonationPlacesInput!): DonationPlaceType!
+  updateDonationPlace(input: UpdateDonationPlacesInput!): String!
+  deleteDonationPlaceByID(input: String!): DonationPlaceType!
+  createNeed(input: NeedsInput!): NeedType!
+  updateNeed(input: UpdateNeedsInput!): String!
+  deleteNeedByID(input: String!): String!
+  getByDocumentNumber(input: String!): NeedType!
+  createTransporter(input: TransportersInput!): TransporterType!
+  updateTransporter(input: UpdateTransportersInput!): String!
+  deleteTransporterByID(input: String!): TransporterType!
+  createDonation(input: DonationsInput!): DonationType!
+  updateDonation(input: UpdateDonationsInput!): String!
+  deleteDonationByID(input: String!): String!
+  getDonationByNeed(input: String!): DonationType!
+  createTransportation(input: TransportationsInput!): TransportationType!
+  updateTransportation(input: UpdateTransportationsInput!): String!
+  deleteTransportationByID(input: String!): String!
+  getTransportationByDonation(input: String!): TransportationType!
+  createDeliver(input: DeliversInput!): DeliverType!
+  updateDeliver(input: UpdateDeliversInput!): String!
+  deleteDeliverByID(input: String!): DeliverType!
+}
+
+input NeedsInput {
+  address: String!
+  contact: String!
+  city: String!
+  phone: String!
+  description: String!
+  donationPlace: String!
+  peopleNeeded: Float!
+  childrenNeeded: Float!
+  documentType: String!
+  documentNumber: String!
+}
+
+type NeedType {
+  id: ID!
+  address: String!
+  contact: String!
+  city: String!
+  phone: String!
+  description: String!
+  donationPlace: String!
+  state: String!
+  peopleNeeded: Float!
+  childrenNeeded: Float!
+  documentType: String!
+  documentNumber: String!
+}
+
+type Query {
+  hello: String!
+  users: [UserType!]!
+  user(input: String!): UserType!
+  hello2: String!
+  cities: [CityType!]!
+  city(input: String!): CityType!
+  donationPlaces: [DonationPlaceType!]!
+  donationPlace(input: String!): DonationPlaceType!
+  needs: [NeedType!]!
+  need(input: String!): NeedType!
+  transporters: [TransporterType!]!
+  transporter(input: String!): TransporterType!
+  donations: [DonationType!]!
+  donation(input: String!): DonationType!
+  transportations: [TransportationType!]!
+  transportation(input: String!): TransportationType!
+  delivers: [DeliverType!]!
+  deliver(input: String!): DeliverType!
+}
+
+input TransportationsInput {
+  transporter: String!
+  transactionNumber: String!
+  donation: String!
+}
+
+type TransportationType {
+  id: ID!
+  transporter: String!
+  transactionNumber: String!
+  donation: String!
+}
+
+input TransportersInput {
+  name: String!
+  contact: String!
+  phone: String!
+}
+
+type TransporterType {
+  id: ID!
+  name: String!
+  contact: String!
+  phone: String!
+}
+
+input UpdateCitiesInput {
+  name: String!
+  id: String!
+}
+
+input UpdateDeliversInput {
+  description: String!
+  need: String!
+  donation: String!
+  donationPlace: String!
+  pictures: [String!]!
+  id: String!
+}
+
+input UpdateDonationPlacesInput {
+  name: String!
+  address: String!
+  city: String!
+  picture: String!
+  contact: String!
+  phone: String!
+  id: String!
+}
+
+input UpdateDonationsInput {
+  name: String!
+  address: String!
+  city: String!
+  phone: String!
+  description: String!
+  donationPlace: String!
+  need: String!
+  id: String!
+}
+
+input UpdateNeedsInput {
+  address: String!
+  contact: String!
+  city: String!
+  phone: String!
+  description: String!
+  donationPlace: String!
+  peopleNeeded: Float!
+  childrenNeeded: Float!
+  documentType: String!
+  documentNumber: String!
+  id: String!
+  state: String!
+}
+
+input UpdateTransportationsInput {
+  transporter: String!
+  transactionNumber: String!
+  donation: String!
+  id: String!
+}
+
+input UpdateTransportersInput {
+  name: String!
+  contact: String!
+  phone: String!
+  id: String!
+}
+
+input UpdateUsersInput {
+  name: String!
+  lastName: String!
+  documentType: String!
+  documentNumber: String!
+  email: String!
+  password: String!
+  role: String!
+  donationPlace: String!
+  id: String!
+}
+
+input UsersInput {
+  name: String!
+  lastName: String!
+  documentType: String!
+  documentNumber: String!
+  email: String!
+  password: String!
+  role: String!
+  donationPlace: String!
+}
+
+type UserType {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  lastName: String!
+  documentType: String!
+  documentNumber: String!
+  role: String!
+  donationPlace: String!
+}
