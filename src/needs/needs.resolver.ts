@@ -21,16 +21,23 @@ export class NeedsResolver{
     //@UseGuards(GqlAuthGuard)
     async needs(@AccessToken(this.authService) token: string) {     
        
-        const decode = this.authService.DecodeToken(token)      
+        const decode = this.authService.DecodeToken(token)
+        
+        if(decode)
+        {
+            const user = await this.authService.findUserByUsername(decode["username"])
 
-        const user = await this.authService.findUserByUsername(decode["username"])
-
-        if(user.role === "IS_ADMIN")
-        {            
+            if(user.role === "IS_ADMIN")
+            {            
+                return this.needsService.findAll();
+            }else{
+                return this.needsService.findBydonationPlace(user.donationPlace)
+            }
+        }
+        else{
             return this.needsService.findAll();
-        }else{
-            return this.needsService.findBydonationPlace(user.donationPlace)
-        } 
+        }
+         
         
     }
 
