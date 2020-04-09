@@ -41,6 +41,16 @@ export class NeedsResolver{
         
     }
 
+    @Query(() => [NeedType])
+    //@UseGuards(GqlAuthGuard)
+    async needsByDonation(@Args('input') donationPlace: string) {     
+       
+        console.log("needs",donationPlace, await this.needsService.findBydonationPlace(donationPlace))
+
+        return this.needsService.findBydonationPlace(donationPlace)         
+        
+    }
+
     @Mutation(() => NeedType)
     @UseGuards(GqlAuthGuard)
     async createNeed(@Args('input') input: NeedsInput, @AccessToken(this.authService) token: string) {

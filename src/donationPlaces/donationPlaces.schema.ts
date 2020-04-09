@@ -16,7 +16,6 @@ export const DonationPlacesSchema = new mongoose.Schema({
     },
     picture: {
         type:String,
-        required:true,
     },
     contact: {
         type:String,

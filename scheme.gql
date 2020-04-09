@@ -89,7 +89,7 @@ type Mutation {
   deleteCityByID(input: String!): CityType!
   createDonationPlace(input: DonationPlacesInput!): DonationPlaceType!
   updateDonationPlace(input: UpdateDonationPlacesInput!): String!
-  deleteDonationPlaceByID(input: String!): DonationPlaceType!
+  deleteDonationPlaceByID(input: String!): String!
   createNeed(input: NeedsInput!): NeedType!
   updateNeed(input: UpdateNeedsInput!): String!
   deleteNeedByID(input: String!): String!
@@ -148,6 +148,7 @@ type Query {
   donationPlaces: [DonationPlaceType!]!
   donationPlace(input: String!): DonationPlaceType!
   needs: [NeedType!]!
+  needsByDonation(input: String!): [NeedType!]!
   need(input: String!): NeedType!
   transporters: [TransporterType!]!
   transporter(input: String!): TransporterType!

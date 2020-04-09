@@ -47,10 +47,11 @@ export class DonationPlacesResolver{
         return this.donationPlacesService.findOne(id);
     }
 
-    @Mutation(() => DonationPlaceType)
+    @Mutation(() => String)
     @UseGuards(GqlAuthGuard)
     async deleteDonationPlaceByID(@Args('input') id:string) {
-        return this.donationPlacesService.delete(id);
+        await this.donationPlacesService.delete(id);
+        return "ok"
     }
 }
 
