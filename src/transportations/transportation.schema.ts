@@ -3,8 +3,7 @@ import * as mongoose from 'mongoose'
 export const TransportationsSchema = new mongoose.Schema({
     transporter: {
         type: String,
-        required:true,
-        unique:true
+        required:true
     },
     transactionNumber: {
       type: String,
