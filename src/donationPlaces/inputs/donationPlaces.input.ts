@@ -1,5 +1,5 @@
 import { InputType, Field } from '@nestjs/graphql'
-
+import { IsEmail, IsIn, IsOptional } from 'class-validator';
 @InputType()
 export class DonationPlacesInput {
   @Field()
@@ -9,6 +9,7 @@ export class DonationPlacesInput {
   @Field()
   readonly city: string;
   @Field()
+  @IsOptional()
   readonly picture: string;
   @Field()
   readonly contact: string;
