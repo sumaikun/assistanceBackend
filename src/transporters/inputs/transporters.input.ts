@@ -6,10 +6,10 @@ import { IsOptional } from 'class-validator';
 export class TransportersInput {
   @Field()
   readonly name: string;
-  //@Field()
-  //readonly contact: string;
-  //@Field()
-  //readonly phone: string;
+  @Field()
+  readonly contact: string;
+  @Field()
+  readonly phone: string;
 }
 
 @InputType()
